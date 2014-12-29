@@ -1,6 +1,7 @@
 import {
   hasAnnotation,
   readAnnotations,
+  cleanAnnotations,
   Inject,
   InjectLazy,
   InjectPromise,
@@ -28,6 +29,17 @@ describe('hasAnnotation', function() {
     function foo() {}
 
     expect(hasAnnotation(foo, SomeAnnotation)).toBe(true);
+  });
+
+  it('should return false if the annotations of fn have been cleaned', function() {
+    class SomeAnnotation {}
+
+    @SomeAnnotation
+    function foo() {}
+
+    cleanAnnotations(foo);
+
+    expect(hasAnnotation(foo, SomeAnnotation)).toBe(false);
   });
 
 
