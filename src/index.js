@@ -3,6 +3,7 @@
 export {Injector} from './injector';
 export {
   annotate,
+  cleanAnnotations,
   Inject,
   InjectLazy,
   InjectPromise,

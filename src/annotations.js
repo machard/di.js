@@ -81,6 +81,11 @@ function hasAnnotation(fn, annotationClass) {
   return false;
 }
 
+//clean annotations
+function cleanAnnotations(fn) {
+  delete fn.annotations;
+}
+
 
 // Read annotations on a function or class and collect "interesting" metadata:
 function readAnnotations(fn) {
@@ -147,6 +152,7 @@ function readAnnotations(fn) {
 export {
   annotate,
   hasAnnotation,
+  cleanAnnotations,
   readAnnotations,
 
   SuperConstructor,
